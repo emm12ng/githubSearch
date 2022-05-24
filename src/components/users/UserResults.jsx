@@ -1,10 +1,11 @@
 import Spinner from '../layout/Spinner'
 import UserItem from './UserItem'
 import GithubContext from '../../context/github/GithubContext'
+import {useContext} from 'react'
 
 function UserResults() {
 
-    const {users, loading, fetchUsers} = useContext(GithubContext)
+    const {users, loading} = useContext(GithubContext)
 
     if (!loading) {
         return (
@@ -15,7 +16,7 @@ function UserResults() {
             </div>
         )
     } else {
-        return <h3>{Spinner}</h3>
+        return <Spinner/>
     }
 }
 
